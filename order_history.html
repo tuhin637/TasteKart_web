@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TasteKart - Order History</title>
+    <style>
+        .dashboard-section { max-width: 1200px; margin: 3rem auto; padding: 1rem; }
+        .order-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .menu-card { background: var(--card-bg, #fff); padding: 1.5rem; border-radius: 15px; box-shadow: 0 5px 15px var(--shadow, rgba(0,0,0,0.1)); }
+        .menu-card h3 { margin-top: 0; color: #333; }
+        .menu-card p { margin: 0.5rem 0; color: #666; }
+        .error, .success { text-align: center; margin-bottom: 1rem; padding: 0.5rem; border-radius: 4px; }
+        .error { color: #e74c3c; background-color: #ffebee; }
+        .success { color: #27ae60; background-color: #e8f5e9; }
+        .review-button { background: var(--primary-color, #d32f2f); color: white; border: none; padding: 0.75rem; border-radius: 25px; font-weight: 700; cursor: pointer; text-align: center; display: block; margin-top: 1rem; text-decoration: none; }
+        .review-button:hover { background: var(--primary-dark, #b71c1c); }
+        .review-button:disabled { background: #ccc; cursor: not-allowed; }
+        .order-history { display: none; }
+        .order-history.active { display: block; }
+        .toggle-button { background: var(--primary-color, #d32f2f); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 25px; font-weight: 700; cursor: pointer; margin-bottom: 1rem; }
+        .toggle-button:hover { background: var(--primary-dark, #b71c1c); }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.php" class="logo">TasteKart</a>
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="#">Order History</a>
+            <a href="#">Orders</a>
+            <a href="profile.php">Profile</a>
+            <a href="logout.php">Logout</a>
+        </nav>
+    </header>
+
+    <section class="dashboard-section">
+        <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-color, #d32f2f);">Your Order History</h2>
+
+        <button class="toggle-button" onclick="toggleOrderHistory()">View Orders</button>
+        <div class="order-history" id="order-history">
+            <div class="order-grid">
+                <p style="text-align: center; color: #999;">You have no order history yet.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleOrderHistory() {
+            const orderHistory = document.getElementById('order-history');
+            orderHistory.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
